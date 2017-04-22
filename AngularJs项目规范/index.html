@@ -1,0 +1,547 @@
+<!doctype html>  
+
+<!--[if IE 6 ]><html lang="en-us" class="ie6"> <![endif]-->
+
+<!--[if IE 7 ]><html lang="en-us" class="ie7"> <![endif]-->
+
+<!--[if IE 8 ]><html lang="en-us" class="ie8"> <![endif]-->
+
+<!--[if (gt IE 7)|!(IE)]><!-->
+
+
+
+<html lang="en-us"><!--<![endif]-->
+
+<head>
+
+	<meta charset="utf-8">
+
+	
+
+	<title>ionic & AngularJs项目规范</title>
+
+	
+
+	<meta name="description" content="ionic & AngularJs项目规范">
+
+	<meta name="author" content="SMART">
+
+	<meta name="copyright" content="SMART">
+
+	<meta name="date" content="2016-09-12T00:00:00+02:00">
+
+    
+
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+	
+
+	<link rel="stylesheet" href="assets/css/documenter_style.css" media="all">
+
+	<link rel="stylesheet" href="assets/css/custom.css" media="screen">
+
+	<link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+
+
+
+	<script type="text/javascript" src="assets/js/jquery.js"></script>
+
+	<script type="text/javascript" src="assets/js/jquery.scrollTo.js"></script>
+
+	<script type="text/javascript" src="assets/js/jquery.easing.js"></script>
+
+	<script type="text/javascript" src="assets/js/script.js"></script>
+
+    <script type="text/javascript">
+
+		document.createElement('section');
+
+		var duration='450',
+
+		easing='easeOutExpo';
+
+    </script>
+
+</head>
+
+
+
+<body class="documenter-project-hotel-paradise">
+
+	<div id="documenter_sidebar">
+
+		<a href="index.html" id="documenter_logo"></a>
+
+        
+
+		<ul id="documenter_nav">
+
+			<li><a class="current" href="#documenter_cover">项目简述</a></li>
+
+			<li><a href="#overview" title="项目结构">项目结构</a></li>
+
+			<li><a href="#features" title="文件命名">文件命名</a></li>
+
+			<li><a href="#elements" title="代码命名">代码命名</a></li>
+
+			<li><a href="#fonts" title="样式命名">样式命名</a></li>
+            
+            <li><a href="#code" title="编码规范">编码规范</a></li>
+
+            <li><a href="#psd_editing" title="版本控制">版本控制</a></li>
+            
+            <li><a href="#credits" title="项目管理">项目管理</a></li>
+
+			<li><a href="#thank_you" title="关于">关于</a></li>
+
+		</ul>
+
+        
+
+		<div id="documenter_copyright">
+
+        	Edit by <a href="#">SMART 2017</a>
+
+        </div>
+
+	</div>
+
+    
+
+	<div id="documenter_content">
+
+		<section id="documenter_cover">
+
+			<h1>ionic & AngularJs项目规范</h1>
+
+			<h2>基于框架 Ionic, v1.3.1 & AngularJs 1.6</h2>
+
+			<hr>
+
+            <p>
+            以安国数字本草wap手机端为案例，整理总结ionic项目的代码规范，便于多人合作开发中，减少代码冲突的问题，利于后期他人维护。
+            <br />
+            <br />
+            同样适用于AngularJs项目，如门特、B2B等
+            <br />
+            <br />
+            <b>望大家多多提出意见和建议，让规范更好的改进、执行。</b>
+            </p>
+
+            <ul>
+
+            	<li>Created: 20 April 2017</li>
+
+            	<li>Latest Update: 20 April 2017</li>
+
+            	<li>by: Smart</li>
+
+                <li>E-mail: <a href="chengshuai.tj@icloud.com">chengshuai.tj@icloud.com</a></li>
+
+            	<li>Project:<a href="https://m.shuzibencao.com/www/#/tab/home" target="_blank">数字本草WAP</a></li>
+
+            </ul>
+
+        </section>
+
+	
+
+        <section id="overview">
+
+            <div class="page-header">
+
+                <h3>项目结构</h3>
+
+                <hr class="notop">
+
+            </div>
+            <p>
+            以ionic的demo项目为基础，在它基础上修改命名和引用文件。<b>该项目为手机网站不涵盖cordova的功能</b>
+            <br />
+            <br />
+            </p>
+            <br />
+            <h4>项目结构:</h4>
+            <img src="assets/images/root.png" alt="" />
+            <img src="assets/images/www.png" alt="" />
+            <ul class="arrowlist">
+
+                <li>项目需要修改gulp配置和package.json在根目录下修改，其他文件均为自动生成</li>
+
+                <li>www目录为主开发目录，index.html为主视图，其他所有模板放到templates下</li>
+
+                <li>css文件中，global.css为覆盖框架或者定义字号、reset浏览器默认样式的文件，module.css为自定义的共通模块样式，均以 <code>.tmod-模块名</code> 的形式命名，style.css为页面级样式</li>
+
+                <li>所有图片放在images文件夹下，icon建议放在 <code>images/icon</code> 下，便于后期设计更换图标</li>
+
+                <li>js文件夹下 <code>app.js</code> 为ionic引用文件，<code>config.js</code>为项目配置文件，<code>config.router.js</code> 配置路由，<code>variable.js</code>为项目的全局变量文件，用于存放接口具体url，<code>url.js</code>为接口的ip，后期使用gulp根据部署环境进行替换，controllers文件夹下为所有的controller文件，directives文件夹下为所有的指令文件，services文件夹下为所有的service文件(主要负责请求rest)</li>
+
+                <li>lib文件夹下为该项目引用的第三方框架或者插件，每次引入新的框架或者插件，需征得开发小组认可</li>
+
+                <li>templates文件夹下为所有模板文件，命名尽量做到见名知意</li>
+
+                <li>data文件夹下本地数据文件，用于自测和开发,生产版本应当删除</li>
+
+            </ul>
+
+        </section>
+
+    
+
+        <section id="features">
+
+            <div class="page-header">
+
+                <h3>文件命名</h3>
+
+                <hr class="notop">
+
+            </div>
+
+            
+
+            <ul class="checklist">
+
+                <li>模板文件命名示例：模块名_页面名 <code>personal_address_edit.html</code></li>
+
+                <li>controller文件命名示例：模板名_ctrl <code>personal_address_edit_ctrl.js</code></li>
+
+                <li>service文件命名示例：模块名 <code>service.js</code></li>
+
+                <li>directives文件命名示例：功能名 <code>resend_button.js</code></li>
+
+            </ul>
+
+        </section>
+
+        
+
+        <section id="elements">
+
+            <div class="page-header">
+
+                <h3>代码命名</h3>
+
+                <hr class="notop">
+
+            </div>
+
+
+
+            <ul class="arrowlist">
+
+                <li>router命名规范如下图，url、模板地址、路由名称应该保持一致，controller命名采用<b>帕斯卡（Pascal）命名法</b></li>
+
+                <pre>
+                    <code>
+        .state('register_personal_success', {
+            url: '/register_personal_success',
+            templateUrl: 'templates/register_personal_success.html',
+            controller: 'RegisterPersonalSuccessCtrl'
+        })
+                    </code>
+                </pre>
+
+                <li>controller命名必须采用显示声明，在数组中安书按顺序声明需要注入的对象名称。<b>数组中声明的对象顺序必须和函数中参数的顺序一致，否则就出现错误异常</b></li>
+
+                <pre>
+                    <code>
+        .controller('RegisterPersonalSuccessCtrl', [
+            '$scope', 
+            '$ionicPopup', 
+            function ($scope, $ionicPopup) { 
+            //TODO jobs
+        }]);
+                    </code>
+                </pre>
+
+                <li>service模块推荐全部使用service方法，factory穿件的服务代码，完全可以使用service方法来代替，反之则需要先将service方法中回调函数单独创建为一个自定义的函数，<b>自定义的服务，命名为$$服务名</b></li>
+
+                <pre>
+                    <code>
+        .service('$$Order', ['$ionicPopup', function ($ionicPopup) {
+            this.httpPromise = function (promise) {
+              promise.success = function (fn) {
+                promise.then(fn);
+                return promise;
+              };
+              promise.error = function (fn) {
+                promise.then(null, fn);
+                return promise;
+              };
+              return promise
+            }
+        }])
+                    </code>
+                </pre>
+
+                <li>页面内模板命名为：tpl-模板名</li>
+                <pre>
+                    <code>
+        &lt;script id="templates/tpl-this-pick-name.html" type="text/ng-template"&gt;
+                    </code>
+                </pre>
+                
+
+                <li>directives指令在文件开头写明该指令的创建人修改人以及使用方法和功能</li>
+
+			</ul>
+
+        </section>
+
+        
+
+<section id="fonts">
+
+    <div class="page-header">
+
+        <h3>样式命名</h3>
+
+        <hr class="notop">
+
+    </div>
+
+    
+
+    <p>针对ionic的框架修改，建议直接修改sass文件再编译已达到设计要求，不建议进行样式覆盖<br />
+
+    <b>相关文件在 <code>lib/ionic/scss</code> 中</b></p>
+
+    
+
+    <p>图标字体文件放在 <code>lib/ionic/fonts</code> 中
+    </p>
+
+    
+
+    <p>共通样式放在global.css中，命名以 <code> .tmod-模块名</code> 开头<br />
+
+    <p>模板文件中， 需要添加单独样式的，一律使用 p-模版名的形式，如<code>&lt;ion-header-bar&gt;</code> 的class名为 p-模板名， <code>&lt;ion-view&gt;</code> 的class名为 p-模板名， <code>&lt;ion-footer-bar&gt;</code> 的class名为 p-模板名， <code>style.css</code>中，必须以 p-模板名 为开头，以这些class名区分不同页面，并标明注释</p>
+
+    <img src="assets/images/html.png" alt="" />
+    <img src="assets/images/css.png" alt="" />
+
+</section>
+
+<section id="code">
+
+    <div class="page-header">
+
+        <h3>编码规范</h3>
+
+        <hr class="notop">
+
+    </div>
+
+    <p><b>建议统一编辑器 <a href="http://www.jetbrains.com/webstorm/">webstorm</a>，并使用webstorm默认的代码整理。</b>
+        <br />
+        默认快捷键Ctrl + Alt + L
+    </p>
+    
+    <ul class="arrowlist">
+        <li>代码缩进：4个空格</li>
+        <li>空格：逗号、冒号后带空格，前面不带，计算符号两边带空格</li>
+        <pre>
+            <code>
+    /*
+     * 段注释
+     */
+    function demo() {
+        //行注释
+        var array = ['a', 'b', 'c', 'd'],
+            res;
+        for (var i = 0, length = array.length; i < length; i++) {
+            if (array[i] == 'c') {
+                res = i;
+                console.log('No.' + i + 'is \'c\'');
+                break;
+            }
+        }
+        return res;
+    }
+            </code>
+        </pre>
+    </ul>
+
+
+    
+
+</section>
+
+<section id="psd_editing">
+
+    <div class="page-header">
+
+        <h3>版本控制</h3>
+
+        <hr class="notop">
+
+    </div>
+
+    
+
+    <p>本项目使用Git进行版本控制，<strong>推荐使用sourceTree软件</strong><br />
+
+    本项目主开发目录为develop分支（简称dev），<b>开发中提交的代码一律到dev</b><br />
+    测试分支为release目录，根据不同的sprint，建立不同的测试分支。
+
+    开发分支命名规范：
+    <pre>
+    <code>m-sprint-[0-9]+/ SZBCWAP-[0-9]+$</code>
+    </pre>
+    例如 m-sprint-1/SZBCWAP-36 登录
+    
+    <br />
+    <br />
+
+    BUG分支命名规范：
+    <pre>
+    <code>m-fix-[0-9]+/ SZBCWAP-[0-9]+$</code>
+    </pre>
+    例如 m-fix-1/SZBCWAP-36 登录
+
+    <br />
+    <br />
+
+    开发流程：<br />
+
+    <ol>
+
+        <li>选择当前最新dev拉取分支，命名为m-sprint-[0-9]+/ SZBCWAP-[0-9]+$</li>
+
+        <li>dev分支禁止修改当前测试中的代码（改bug、优化等）</li>
+
+        <li>自测！自测！自测！</li>
+
+    </ol>
+
+    提交测试：<br />
+
+    <ol>
+
+        <li>选择当前最新dev拉取release分支</li>
+
+        <li>release分支禁止除了修改bug以外的任何修改</li>
+
+        <li>每天下午4点将release分支回merge到dev</li>
+
+    </ol>
+
+    修改bug：<br />
+
+    <ol>
+        
+        <li>拉取最新release分支，建立新分支</li>
+
+        <li>在本地自测完成后再提交</li>
+
+        <li>标注修改的内容、功能</li>
+
+    </ol>
+
+    </p>
+
+
+    <h4>注意</h4>
+
+    <p>
+
+        所有代码编辑修改后一定要自测，减少测试压力和后期修改重复工作。<br />
+
+        每一期sprint前两周为开发时间，最后一周，根据自测进行修改以及优化，对于已经提交测试的代码不再优化。<br />
+        
+        每次提交，都必须有该次提交的注释，说明本次修改原因。
+       
+
+    </p>
+
+</section>
+
+
+
+        <section id="credits">
+
+    <div class="page-header">
+
+        <h3>项目管理</h3>
+
+        <hr class="notop">
+
+    </div>
+
+    
+
+    <p>仅仅适用于Sprint2阶段<br />
+
+    <a href="http://jira.tasly.com:8080/secure/Dashboard.jspa"><strong>Jira地址</strong></a><br />
+
+    <br /></p>
+
+    <h4>修复bug的Jria流程</h4>
+
+    <ul>
+        
+        <li><b>只修复标明修复版本(fix version)的bug</b></li>
+
+        <li>每天下午4点，负责人开始更新Jira上的bug状态，筛选是否需要修复</li>
+
+        <li>需要修复的bug，会标注修复版本(fix version)</li>
+
+        <li>如果改bug不是当前分支及以前分支造成的，新建label标签:P-Again，把Sprint设置为In Pliot Scope</li>
+
+        <li>每一期开发的第一周，负责人检查含有P-Again label标签的bug是否在这一期内，如果是则修改sprint为当前期，修改修复版本(fix version)为当前期</li>
+
+    </ul>
+
+    <br />
+
+    <h4>BUG修改</h4>
+
+    <ul>
+
+        <li>bug修改完成后将该bug修改为解决问题(resolved)，严禁开发人员直接关闭问题(closed)，甚至删除(delete)，如果必要，与测试沟通</li>
+
+        <li>每天早晨查看Jira的bug，优先修改bug，尽量做到当天bug当天关</li>
+
+        <li>超过一天的bug或者需要其他同事配合的，及时指出，小组商议</li>
+
+        <li>检查该bug是否为需求扩展或变更，如果有，请指出通知BA</li>
+
+    </ul>
+
+
+</section>
+
+        
+
+        <section id="thank_you">
+
+            <div class="page-header">
+
+                <h3>关于</h3>
+
+                <hr class="notop">
+
+            </div>
+
+            
+
+            <p>感谢阅读该规范<br />
+
+            如果你还有疑问或建议,请联系我的邮箱 <a href="chengshuai.tj@icloud.com">chengshuai.tj@icloud.com</a> <br />
+
+            <br />
+
+            <strong>Best Regards,</strong><br />
+
+			<i>SMART</i>
+
+            </p>
+
+        </section>
+
+	</div>
+
+</body>
+
+</html>
