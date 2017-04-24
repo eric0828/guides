@@ -7,6 +7,7 @@ Front-end‘s guides for Tasly
 * 保持代码清洁度，禁止有无用的注释代码，避免无用的换行，保持代码可读性
 * 养成良好整理代码习惯，使用Command + Option + L，在每次提交之前进行修改文件的代码整理
 * 禁止提交.idea文件夹及以内的任何文件到版本控制
+* 对于屏幕适配，使用背景图片代替img，保证宽屏和窄屏高度一致，图片居中不变形
 
 #### [bootstrap代码规范](http://codeguide.bootcss.com/)
 #### [google代码规范](https://google.github.io/styleguide/htmlcssguide.html)
