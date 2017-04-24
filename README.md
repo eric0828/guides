@@ -5,7 +5,7 @@ Front-end‘s guides for Tasly
 * 统一编辑器为webstorm，修改webstorm的设置，统一为 __4空格__ 缩进
 * 每次代码提交必须填写comments
 * 保持代码清洁度，禁止有无用的注释代码，避免无用的换行，保持代码可读性
-* 养成良好整理代码习惯，使用Cmd + Option + L，在每次提交之前进行修改文件的代码整理
+* 养成良好整理代码习惯，使用Command + Option + L，在每次提交之前进行修改文件的代码整理
 * 禁止提交.idea文件夹及以内的任何文件到版本控制
 
 #### [bootstrap代码规范](http://codeguide.bootcss.com/)
